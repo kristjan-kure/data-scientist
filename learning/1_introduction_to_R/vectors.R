@@ -94,7 +94,22 @@ selection_vector <- poker_vector > 0
 # Select from poker_vector these days
 poker_winning_days <- poker_vector[selection_vector]
 
+# SUBSET
+# -------------------------------------------------
+# You should see the subset() function as a short-cut to do exactly the same as what you did in the previous exercises.
+subset(my_df, subset = some_condition)
 
+# Select planets with diameter < 1
+subset(planets_df, subset = diameter < 1)
+
+
+# ORDER
+# -------------------------------------------------
+# Use order() to create positions
+positions <- order(planets_df$diameter) 
+
+# Use positions to sort planets_df
+planets_df[positions,]
 
 
 

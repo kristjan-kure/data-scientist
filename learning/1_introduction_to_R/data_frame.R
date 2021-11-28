@@ -1,78 +1,37 @@
 # -------------------------------------------------
-# FACTOR
+# DATA FRAME
 # -------------------------------------------------
 
-# The term factor refers to a statistical data type used to store categorical variables. 
-# The difference between a categorical variable and a continuous variable is that a
-# categorical variable can belong to a limited number of categories. A continuous variable, 
-# on the other hand, can correspond to an infinite number of values.
-
-# Sex vector
-sex_vector <- c("Male", "Female", "Female", "Male", "Male")
-
-# Convert sex_vector to a factor
-factor_sex_vector <- factor(sex_vector)
-
-# Print out factor_sex_vector
-factor_sex_vector
-
-# A nominal variable is a categorical variable without an implied order. This means that it is 
-# impossible to say that 'one is worth more than the other'. For example, think of the categorical 
-# variable animals_vector with the categories "Elephant", "Giraffe", "Donkey" and "Horse". Here, 
-# it is impossible to say that one stands above or below the other. (Note that some of you might disagree ;-) ).
-
-# In contrast, ordinal variables do have a natural ordering. Consider for example the categorical 
-# variable temperature_vector with the categories: "Low", "Medium" and "High". Here it is obvious 
-# that "Medium" stands above "Low", and "High" stands above "Medium".
-
-# RENAME
-# -------------------------------------------------
-
-# Code to build factor_survey_vector
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-
-# Specify the levels of factor_survey_vector
-levels(factor_survey_vector) <- c("Female", "Male")
-
-# Build factor_survey_vector with clean levels
-survey_vector <- c("M", "F", "F", "M", "M")
-factor_survey_vector <- factor(survey_vector)
-levels(factor_survey_vector) <- c("Female", "Male")
-factor_survey_vector
-
-# Generate summary for survey_vector
-summary(survey_vector)
-
-# Generate summary for factor_survey_vector
-summary(factor_survey_vector)
-
-# ORDERED FACTORS
-# -------------------------------------------------
-# Create speed_vector
-speed_vector <- c("medium", "slow", "slow", "medium", "fast")
-
-# Convert speed_vector to ordered factor vector
-factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("slow","medium", "fast"))
-
-# Print factor_speed_vector
-summary(factor_speed_vector)
+# A data frame has the variables of a data set as columns and the observations as rows.
+# The function head() enables you to show the first observations of a data frame. 
+# Similarly, the function tail() prints out the last observations in your data set.
+# Another method that is often used to get a rapid overview of your data is the function str(). 
+# The function str() shows you the structure of your data set
 
 
-# Create factor_speed_vector
-speed_vector <- c("medium", "slow", "slow", "medium", "fast")
-factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("slow", "medium", "fast"))
+# Definition of vectors
+name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
 
-# Factor value for second data analyst
-da2 <- factor_speed_vector[2]
-
-# Factor value for fifth data analyst
-da5 <- factor_speed_vector[5]
-
-# Is data analyst 2 faster than data analyst 5?
-da2 > da5
+# Create a data frame from the vectors
+planets_df <- data.frame(name, type, diameter, rotation, rings)
 
 
+# A possible disadvantage of this approach is that you have to know (or look up) the column number of type, 
+# which gets hard if you have a lot of variables. It is often easier to just make use of the variable name:
+  
+# You will often want to select an entire column, namely one specific variable from a data frame. If you 
+# want to select all elements of the variable diameter, for example, both of these will do the trick:
 
+planets_df[1:3,"type"]
+planets_df[,3]
+planets_df[,"diameter"]
+
+
+# Select the rings variable from planets_df
+rings_vector <- planets_df$diameter
 
 
