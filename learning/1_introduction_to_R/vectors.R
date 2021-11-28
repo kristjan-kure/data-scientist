@@ -102,6 +102,9 @@ subset(my_df, subset = some_condition)
 # Select planets with diameter < 1
 subset(planets_df, subset = diameter < 1)
 
+# Select planets with diameter < 1
+subset(planets_df, diameter < 1)
+
 
 # ORDER
 # -------------------------------------------------
