@@ -62,3 +62,41 @@ total_roulette <- sum(roulette_vector)
 total_poker > total_roulette
 
 
+# Selecting elements
+# -------------------------------------------------
+# To select elements of a vector (and later matrices, data frames, …), you can use square brackets. 
+# Between the square brackets, you indicate what elements to select. For example, to select the first 
+# element of the vector, you type poker_vector[1]. To select the second element of the vector, you type 
+# poker_vector[2], etc. Notice that the first element in a vector has index 1, not 0 as in many other 
+# programming languages.
+
+poker_vector <- c(140, -50, 20, -120, 240)
+
+# Define a new variable based on a selection
+poker_wednesday <- poker_vector[3]
+
+# Code below selects the first and fifth element of poker_vector
+poker_vector[c(1, 5)]
+
+# Code below selects the elements from 2 to 4
+poker_vector[c(2:4)]
+
+
+# Select poker results for Monday, Tuesday and Wednesday
+poker_start <- poker_vector[c("Monday", "Tuesday", "Wednesday")]
+
+# Calculate the average of the elements in poker_start
+mean(poker_start)
+
+# Which days did you make money on poker?
+selection_vector <- poker_vector > 0
+
+# Select from poker_vector these days
+poker_winning_days <- poker_vector[selection_vector]
+
+
+
+
+
+
+
