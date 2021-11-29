@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# APPLY / LAPPLY
+# APPLY / LAPPLY / VAPPLY
 # -------------------------------------------------
 
 nyc <- list(pop = 8405837, boroughs = c("Manhatten", "Bronx", "Brooklyn", "Queens", "Staten Island"), capital = FALSE)
@@ -123,5 +123,70 @@ select_el <- function(x, index) {
 # Use lapply() twice on split_low: names and years
 names <- lapply(split_low, select_el, index = 1)
 years <- lapply(split_low, select_el, index = 2)
+
+
+
+# sapply with function returning vector
+# -------------------------------------------------
+
+# Create a function that returns min and max of a vector: extremes
+extremes <- function(x) {
+  c(min = min(x), max = max(x))
+}
+
+# Apply extremes() over temp with sapply()
+sapply(temp, extremes)
+
+# Apply extremes() over temp with lapply()
+lapply(temp, extremes)
+
+
+# temp is already available in the workspace
+
+
+# sapply with functions that return NULL
+# -------------------------------------------------
+# Definition of print_info()
+print_info <- function(x) {
+  cat("The average temperature is", mean(x), "\n")
+}
+
+# Apply print_info() over temp using sapply()
+sapply(temp, print_info)
+
+# Apply print_info() over temp using lapply()
+lapply(temp, print_info)
+
+
+# cat: Concatenate and Print
+cat()
+
+# RECAP
+# -------------------------------------------------
+
+lapply() 
+# Apply function over list or vector
+# output = list
+
+sapply() 
+# Apply function over list or vector
+# try to simplify list to array
+
+vapply() 
+# Apply function over list or vector
+# explicity specify output format
+
+
+
+# VAPPLY
+# -------------------------------------------------
+
+# Definition of basics()
+basics <- function(x) {
+  c(min = min(x), mean = mean(x), max = max(x))
+}
+
+# Apply basics() over temp using vapply()
+vapply(temp, basics, numeric(3))
 
 
