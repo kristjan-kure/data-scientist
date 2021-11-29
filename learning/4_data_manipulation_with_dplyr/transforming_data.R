@@ -2,7 +2,7 @@
 # Data Manipulation with dplyr 
 # -------------------------------------------------
 
-counties <- readRDS('G:/My Drive/1_DATA_ANALYST/Github/data-scientist/learning/4_data_manipulation_with_dplyr/counties.rds')
+counties <- readRDS('PATH/counties.rds')
 
 counties %>%
   select(state, county, population, poverty)
